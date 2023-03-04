@@ -11,6 +11,7 @@ import SwiftUI
 let background_C = Color("Background")
 let text_C = Color("Text")
 let accent_C = Color("Accent")
+let top_C = Color("Top")
 
 struct ContentView: View
 {
@@ -18,53 +19,71 @@ struct ContentView: View
     
     var body: some View
     {
+        //App Base
         VStack()
         {
-            TabView(selection: $tabSelection)
+            HStack()
             {
+                Spacer()
+                
                 Text("Options")
-                    .onTapGesture
-                    {
-                        tabSelection = "Two"
-                    }
-                    .tabItem
-                    {
-                    }
-                    .tag("One")
-            }
-            .frame(width: .infinity , height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            
-            // Title
-            Text("Rendering Options")
-                .padding(30)
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(text_C)
+                
+                Spacer()
+                
+                Text("Render")
+                    .foregroundColor(text_C)
+                
+                Spacer()
+                
+                Text("Export")
+                    .foregroundColor(text_C)
+                
+                Spacer()
+                
+            }
+            .padding(16)
+            .frame(maxWidth: .infinity)
+            .background(top_C)
+            .cornerRadius(10)
             
-            // Options
+            // Rendering Options Page
             VStack()
             {
-                // Primary Shape Settings
-                Text("Primary Shape")
+                // Title
+                Text("Rendering Options")
+                    .padding(30)
+                    .font(.system(size: 40))
                     .foregroundColor(text_C)
                 
-                HStack()
+                // Options
+                VStack()
                 {
+                    // Primary Shape Settings
+                    Text("Primary Shape")
+                        .foregroundColor(text_C)
                     
-                }
-                
-                // Background Shape Settings
-                Text("Background Scenery")
-                    .foregroundColor(text_C)
-                
-                HStack()
-                {
+                    HStack()
+                    {
+                        
+                    }
+                    
+                    // Background Shape Settings
+                    Text("Background Scenery")
+                        .foregroundColor(text_C)
+                    
+                    HStack()
+                    {
+                        
+                    }
                     
                 }
                 
             }
-            
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .padding()
+        .frame(maxWidth: 600, maxHeight: 400)
         .background(background_C)
         .border(accent_C, width: 3)
     }
