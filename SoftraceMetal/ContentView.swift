@@ -30,8 +30,10 @@ struct ContentView: View
                 {
                     tabSelection = 1
                 }
-                    .foregroundColor(text_C)
-                    .font(.system(size: 16))
+                .foregroundColor(text_C)
+                .font(.system(size: 12))
+                .controlSize(.regular)
+                .shadow(radius: 4)
                 
                 Spacer()
                 
@@ -39,8 +41,9 @@ struct ContentView: View
                 {
                     tabSelection = 2
                 }
-                    .foregroundColor(text_C)
-                    .font(.system(size: 16))
+                .foregroundColor(text_C)
+                .font(.system(size: 12))
+                .shadow(radius: 4)
                 
                 Spacer()
                 
@@ -48,15 +51,16 @@ struct ContentView: View
                 {
                     tabSelection = 3
                 }
-                    .foregroundColor(text_C)
-                    .font(.system(size: 16))
+                .foregroundColor(text_C)
+                .font(.system(size: 12))
+                .shadow(radius: 4)
                 
                 Spacer()
                 
             }
-                .padding(20)
-                .frame(maxWidth: .infinity)
-                .background(top_C)
+            .padding(20)
+            .frame(maxWidth: .infinity)
+            .background(top_C)
             
             //Pages
             OptionPage(toggle: $tabSelection)
@@ -97,16 +101,16 @@ struct OptionPage : View
                 {
                         // Title
                         Text("Rendering Options")
-                            .padding(30)
-                            .font(.system(size: 40))
-                            .foregroundColor(text_C)
+                        .padding(30)
+                        .font(.system(size: 40))
+                        .foregroundColor(text_C)
                         
                         // Options
                         VStack()
                         {
                             // Primary Shape Settings
                             Text("Primary Shape")
-                                .foregroundColor(text_C)
+                            .foregroundColor(text_C)
                             
                             HStack()
                             {
@@ -115,7 +119,7 @@ struct OptionPage : View
                             
                             // Background Shape Settings
                             Text("Background Scenery")
-                                .foregroundColor(text_C)
+                            .foregroundColor(text_C)
                             
                             HStack()
                             {
@@ -146,9 +150,9 @@ struct RenderingPage : View
                 {
                     // Title
                     Text("Render")
-                        .padding(10)
-                        .font(.system(size: 23))
-                        .foregroundColor(text_C)
+                    .padding(10)
+                    .font(.system(size: 23))
+                    .foregroundColor(text_C)
                     
                     // Render Video
                     VStack()
@@ -164,7 +168,7 @@ struct RenderingPage : View
                 }
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }
+            }
         }
     }
 }
@@ -177,7 +181,7 @@ struct ExportPage : View
     
     var body : some View
     {
-        VStack
+        VStack()
         {
             if(toggle == 3)
             {
@@ -185,11 +189,11 @@ struct ExportPage : View
                 {
                     // Title
                     Text("Export")
-                        .padding(10)
-                        .font(.system(size: 23))
-                        .foregroundColor(text_C)
+                    .padding(10)
+                    .font(.system(size: 23))
+                    .foregroundColor(text_C)
                     
-                    // Render Video
+                    // Export Options
                     VStack()
                     {
                         
@@ -200,7 +204,7 @@ struct ExportPage : View
                 }
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }
+            }
         }
     }
 }

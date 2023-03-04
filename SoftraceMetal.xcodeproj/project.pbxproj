@@ -15,6 +15,10 @@
 		11AD325B29B17E94009C976D /* SoftraceMetalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD325A29B17E94009C976D /* SoftraceMetalTests.swift */; };
 		11AD326629B17E94009C976D /* SoftraceMetalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD326529B17E94009C976D /* SoftraceMetalUITests.swift */; };
 		11AD327A29B3C80E009C976D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11AD327829B3C80E009C976D /* main.cpp */; };
+		11AD328D29B3D812009C976D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AD328C29B3D812009C976D /* Metal.framework */; };
+		11AD328F29B3D818009C976D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AD328E29B3D818009C976D /* Foundation.framework */; };
+		11AD329129B3D824009C976D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AD329029B3D824009C976D /* QuartzCore.framework */; };
+		11AD329929B3DB17009C976D /* Metal in Resources */ = {isa = PBXBuildFile; fileRef = 11AD329829B3DB16009C976D /* Metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,10 @@
 		11AD327729B3C80D009C976D /* SoftraceMetal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoftraceMetal-Bridging-Header.h"; sourceTree = "<group>"; };
 		11AD327829B3C80E009C976D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		11AD327929B3C80E009C976D /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		11AD328C29B3D812009C976D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		11AD328E29B3D818009C976D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		11AD329029B3D824009C976D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		11AD329829B3DB16009C976D /* Metal */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Metal; path = SoftraceMetal/cpp/Metal; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11AD328F29B3D818009C976D /* Foundation.framework in Frameworks */,
+				11AD329129B3D824009C976D /* QuartzCore.framework in Frameworks */,
+				11AD328D29B3D812009C976D /* Metal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +97,7 @@
 				11AD325929B17E94009C976D /* SoftraceMetalTests */,
 				11AD326429B17E94009C976D /* SoftraceMetalUITests */,
 				11AD324229B17E92009C976D /* Products */,
+				11AD328B29B3D812009C976D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,19 +155,31 @@
 		11AD327629B3C7C9009C976D /* cpp */ = {
 			isa = PBXGroup;
 			children = (
+				11AD329829B3DB16009C976D /* Metal */,
 				11AD328129B3CA36009C976D /* functions */,
 				11AD327729B3C80D009C976D /* SoftraceMetal-Bridging-Header.h */,
 				11AD327829B3C80E009C976D /* main.cpp */,
 				11AD327929B3C80E009C976D /* main.h */,
 			);
-			path = cpp;
-			sourceTree = "<group>";
+			name = cpp;
+			path = SoftraceMetal/cpp;
+			sourceTree = SOURCE_ROOT;
 		};
 		11AD328129B3CA36009C976D /* functions */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = functions;
+			sourceTree = "<group>";
+		};
+		11AD328B29B3D812009C976D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11AD329029B3D824009C976D /* QuartzCore.framework */,
+				11AD328E29B3D818009C976D /* Foundation.framework */,
+				11AD328C29B3D812009C976D /* Metal.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11AD329929B3DB17009C976D /* Metal in Resources */,
 				11AD324F29B17E93009C976D /* Main.storyboard in Resources */,
 				11AD324C29B17E93009C976D /* Preview Assets.xcassets in Resources */,
 				11AD324929B17E93009C976D /* Assets.xcassets in Resources */,
@@ -344,7 +369,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -389,6 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/SoftraceMetal/cpp/Metal";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -405,7 +431,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -444,6 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/SoftraceMetal/cpp/Metal";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
