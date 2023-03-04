@@ -15,7 +15,7 @@ let top_C = Color("Top")
 
 struct ContentView: View
 {
-    @State private var tabSelection = "One"
+    @State var tabSelection = 1
     
     var body: some View
     {
@@ -26,66 +26,46 @@ struct ContentView: View
             {
                 Spacer()
                 
-                Text("Options")
-                .foregroundColor(text_C)
-                
-                Spacer()
-                
-                Text("Render")
-                    .foregroundColor(text_C)
-                
-                Spacer()
-                
-                Text("Export")
-                    .foregroundColor(text_C)
-                
-                Spacer()
-                
-            }
-            .padding(16)
-            .frame(maxWidth: .infinity)
-            .background(top_C)
-            .cornerRadius(10)
-            
-            // Rendering Options Page
-            VStack()
-            {
-                // Title
-                Text("Rendering Options")
-                    .padding(30)
-                    .font(.system(size: 40))
-                    .foregroundColor(text_C)
-                
-                // Options
-                VStack()
+                Button("Options")
                 {
-                    // Primary Shape Settings
-                    Text("Primary Shape")
-                        .foregroundColor(text_C)
-                    
-                    HStack()
-                    {
-                        
-                    }
-                    
-                    // Background Shape Settings
-                    Text("Background Scenery")
-                        .foregroundColor(text_C)
-                    
-                    HStack()
-                    {
-                        
-                    }
-                    
+                    tabSelection = 1
                 }
+                    .foregroundColor(text_C)
+                    .font(.system(size: 16))
+                
+                Spacer()
+                
+                Button("Render")
+                {
+                    tabSelection = 2
+                }
+                    .foregroundColor(text_C)
+                    .font(.system(size: 16))
+                
+                Spacer()
+                
+                Button("Export")
+                {
+                    tabSelection = 3
+                }
+                    .foregroundColor(text_C)
+                    .font(.system(size: 16))
+                
+                Spacer()
                 
             }
-            .padding()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding(20)
+                .frame(maxWidth: .infinity)
+                .background(top_C)
+            
+            //Pages
+            OptionPage(toggle: $tabSelection)
+            RenderingPage(toggle: $tabSelection)
+            ExportPage(toggle: $tabSelection)
         }
-        .frame(maxWidth: 600, maxHeight: 400)
-        .background(background_C)
-        .border(accent_C, width: 3)
+            .frame(maxWidth: 600, maxHeight: 400)
+            .background(background_C)
+            .border(accent_C, width: 3)
     }
 }
 
@@ -99,4 +79,135 @@ struct ContentView_Previews: PreviewProvider
             ContentView().environment(\.colorScheme, .light)
         }
     }
+}
+
+
+// Option Body
+struct OptionPage : View
+{
+    @Binding var toggle: Int
+    
+    var body : some View
+    {
+        VStack
+        {
+            if(toggle == 1)
+            {
+                VStack()
+                {
+                        // Title
+                        Text("Rendering Options")
+                            .padding(30)
+                            .font(.system(size: 40))
+                            .foregroundColor(text_C)
+                        
+                        // Options
+                        VStack()
+                        {
+                            // Primary Shape Settings
+                            Text("Primary Shape")
+                                .foregroundColor(text_C)
+                            
+                            HStack()
+                            {
+                                
+                            }
+                            
+                            // Background Shape Settings
+                            Text("Background Scenery")
+                                .foregroundColor(text_C)
+                            
+                            HStack()
+                            {
+                                
+                            }
+                        }
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+        }
+    }
+}
+
+// Rendering Body
+struct RenderingPage : View
+{
+    @Binding var toggle: Int
+    
+    
+    var body : some View
+    {
+        VStack
+        {
+            if(toggle == 2)
+            {
+                VStack()
+                {
+                    // Title
+                    Text("Render")
+                        .padding(10)
+                        .font(.system(size: 23))
+                        .foregroundColor(text_C)
+                    
+                    // Render Video
+                    VStack()
+                    {
+                        Button("Render")
+                        {
+                            RenderImage()
+                        }
+                    }
+                    .padding(30)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    
+                }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+        }
+    }
+}
+
+// Export  Body
+struct ExportPage : View
+{
+    @Binding var toggle: Int
+    
+    
+    var body : some View
+    {
+        VStack
+        {
+            if(toggle == 3)
+            {
+                VStack()
+                {
+                    // Title
+                    Text("Export")
+                        .padding(10)
+                        .font(.system(size: 23))
+                        .foregroundColor(text_C)
+                    
+                    // Render Video
+                    VStack()
+                    {
+                        
+                    }
+                    .padding(30)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    
+                }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+        }
+    }
+}
+
+// Calls the Rendering Function
+func RenderImage()
+{
+    writeScene()
+    renderImage()
 }

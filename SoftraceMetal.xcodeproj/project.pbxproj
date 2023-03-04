@@ -14,6 +14,7 @@
 		11AD324F29B17E93009C976D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AD324D29B17E93009C976D /* Main.storyboard */; };
 		11AD325B29B17E94009C976D /* SoftraceMetalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD325A29B17E94009C976D /* SoftraceMetalTests.swift */; };
 		11AD326629B17E94009C976D /* SoftraceMetalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD326529B17E94009C976D /* SoftraceMetalUITests.swift */; };
+		11AD327A29B3C80E009C976D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11AD327829B3C80E009C976D /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,9 @@
 		11AD326129B17E94009C976D /* SoftraceMetalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoftraceMetalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AD326529B17E94009C976D /* SoftraceMetalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftraceMetalUITests.swift; sourceTree = "<group>"; };
 		11AD326729B17E94009C976D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11AD327729B3C80D009C976D /* SoftraceMetal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoftraceMetal-Bridging-Header.h"; sourceTree = "<group>"; };
+		11AD327829B3C80E009C976D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		11AD327929B3C80E009C976D /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 		11AD324329B17E92009C976D /* SoftraceMetal */ = {
 			isa = PBXGroup;
 			children = (
+				11AD327629B3C7C9009C976D /* cpp */,
 				11AD324429B17E92009C976D /* AppDelegate.swift */,
 				11AD324629B17E92009C976D /* ContentView.swift */,
 				11AD324829B17E93009C976D /* Assets.xcassets */,
@@ -133,6 +138,24 @@
 				11AD326729B17E94009C976D /* Info.plist */,
 			);
 			path = SoftraceMetalUITests;
+			sourceTree = "<group>";
+		};
+		11AD327629B3C7C9009C976D /* cpp */ = {
+			isa = PBXGroup;
+			children = (
+				11AD328129B3CA36009C976D /* functions */,
+				11AD327729B3C80D009C976D /* SoftraceMetal-Bridging-Header.h */,
+				11AD327829B3C80E009C976D /* main.cpp */,
+				11AD327929B3C80E009C976D /* main.h */,
+			);
+			path = cpp;
+			sourceTree = "<group>";
+		};
+		11AD328129B3CA36009C976D /* functions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = functions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +225,7 @@
 				TargetAttributes = {
 					11AD324029B17E92009C976D = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 					11AD325529B17E94009C976D = {
 						CreatedOnToolsVersion = 12.1;
@@ -267,6 +291,7 @@
 			files = (
 				11AD324729B17E92009C976D /* ContentView.swift in Sources */,
 				11AD324529B17E92009C976D /* AppDelegate.swift in Sources */,
+				11AD327A29B3C80E009C976D /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SoftraceMetal/SoftraceMetal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -446,6 +472,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = imasoftea.SoftraceMetal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SoftraceMetal/cpp/SoftraceMetal-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -455,6 +483,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SoftraceMetal/SoftraceMetal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -468,6 +497,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = imasoftea.SoftraceMetal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SoftraceMetal/cpp/SoftraceMetal-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
