@@ -212,6 +212,5 @@ struct ExportPage : View
 // Calls the Rendering Function
 func RenderImage()
 {
-    writeScene()
-    renderImage()
+    renderMain()
 }

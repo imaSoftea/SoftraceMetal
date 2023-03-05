@@ -15,12 +15,16 @@
 #include <Metal/Metal.hpp>
 #include <QuartzCore/QuartzCore.hpp>
 
-void writeScene()
-{
-    
-}
+#include "render.h"
+#include "initialize.h"
 
-void renderImage()
+void renderMain()
 {
-    
+        UserSceneData temp = { 800, 600 };
+
+        // Initialize Program
+        std::vector<Shape*> sceneShapes = buildScene();
+
+        // Render Scene
+        renderScene(sceneShapes, temp);
 }

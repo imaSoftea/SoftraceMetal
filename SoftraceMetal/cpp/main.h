@@ -10,8 +10,7 @@ extern "C"
 {
 #endif
 
-void writeScene();
-void renderImage();
+void renderMain();
 
 #ifdef __cplusplus
 }
