@@ -19,9 +19,6 @@
 		11AD328F29B3D818009C976D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AD328E29B3D818009C976D /* Foundation.framework */; };
 		11AD329129B3D824009C976D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AD329029B3D824009C976D /* QuartzCore.framework */; };
 		11AD329929B3DB17009C976D /* Metal in Resources */ = {isa = PBXBuildFile; fileRef = 11AD329829B3DB16009C976D /* Metal */; };
-		11AD32A529B50316009C976D /* render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11AD32A129B50316009C976D /* render.cpp */; };
-		11AD32A629B50316009C976D /* initialize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11AD32A429B50316009C976D /* initialize.cpp */; };
-		11AD32AB29B50344009C976D /* base in Resources */ = {isa = PBXBuildFile; fileRef = 11AD32AA29B50344009C976D /* base */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,11 +60,6 @@
 		11AD328E29B3D818009C976D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		11AD329029B3D824009C976D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		11AD329829B3DB16009C976D /* Metal */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Metal; path = SoftraceMetal/cpp/Metal; sourceTree = SOURCE_ROOT; };
-		11AD32A129B50316009C976D /* render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = render.cpp; path = ../../../../Documents/GitHub/Softrace_2.0/src/render.cpp; sourceTree = "<group>"; };
-		11AD32A229B50316009C976D /* render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = render.h; path = ../../../../Documents/GitHub/Softrace_2.0/src/render.h; sourceTree = "<group>"; };
-		11AD32A329B50316009C976D /* initialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = initialize.h; path = ../../../../Documents/GitHub/Softrace_2.0/src/initialize.h; sourceTree = "<group>"; };
-		11AD32A429B50316009C976D /* initialize.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = initialize.cpp; path = ../../../../Documents/GitHub/Softrace_2.0/src/initialize.cpp; sourceTree = "<group>"; };
-		11AD32AA29B50344009C976D /* base */ = {isa = PBXFileReference; lastKnownFileType = folder; name = base; path = ../../../../Documents/GitHub/Softrace_2.0/src/base; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,13 +155,8 @@
 		11AD327629B3C7C9009C976D /* cpp */ = {
 			isa = PBXGroup;
 			children = (
-				11AD32AA29B50344009C976D /* base */,
 				11AD329829B3DB16009C976D /* Metal */,
 				11AD327729B3C80D009C976D /* SoftraceMetal-Bridging-Header.h */,
-				11AD32A429B50316009C976D /* initialize.cpp */,
-				11AD32A329B50316009C976D /* initialize.h */,
-				11AD32A129B50316009C976D /* render.cpp */,
-				11AD32A229B50316009C976D /* render.h */,
 				11AD327829B3C80E009C976D /* main.cpp */,
 				11AD327929B3C80E009C976D /* main.h */,
 			);
@@ -292,7 +279,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				11AD329929B3DB17009C976D /* Metal in Resources */,
-				11AD32AB29B50344009C976D /* base in Resources */,
 				11AD324F29B17E93009C976D /* Main.storyboard in Resources */,
 				11AD324C29B17E93009C976D /* Preview Assets.xcassets in Resources */,
 				11AD324929B17E93009C976D /* Assets.xcassets in Resources */,
@@ -323,8 +309,6 @@
 				11AD324729B17E92009C976D /* ContentView.swift in Sources */,
 				11AD324529B17E92009C976D /* AppDelegate.swift in Sources */,
 				11AD327A29B3C80E009C976D /* main.cpp in Sources */,
-				11AD32A529B50316009C976D /* render.cpp in Sources */,
-				11AD32A629B50316009C976D /* initialize.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
