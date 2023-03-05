@@ -4,7 +4,7 @@
 
 void renderScene(std::vector <Shape*> shapeList, UserSceneData details)
 {
-	std::ofstream singlefile("Output.ppm");
+	std::ofstream singlefile("output.ppm");
 	
 	printHeader(singlefile, details.rWidth, details.rHeight);
 	Camera cam({0.0f, 0.0f, 0.0f}, { 0.0f, 0.0f, 1.0f }, 1.0f, details.rWidth, details.rHeight);

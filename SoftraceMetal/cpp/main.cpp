@@ -18,13 +18,15 @@
 #include "render.h"
 #include "initialize.h"
 
+#include <iostream>
+
 void renderMain()
 {
-        UserSceneData temp = { 800, 600 };
+    UserSceneData temp = { 800, 600 };
 
-        // Initialize Program
-        std::vector<Shape*> sceneShapes = buildScene();
-
-        // Render Scene
-        renderScene(sceneShapes, temp);
+    // Initialize Program
+    std::vector<Shape*> sceneShapes = buildScene();
+    
+    // Render Scene
+    renderScene(sceneShapes, temp);
 }

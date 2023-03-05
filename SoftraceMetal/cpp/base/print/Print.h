@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../../inc/glm/glm.hpp"
+#include <glm/glm.hpp>
 #include <fstream>
 
 void printHeader(std::ofstream &file, int width, int height)
