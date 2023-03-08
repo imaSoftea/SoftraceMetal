@@ -126,6 +126,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11921EE229B94FE5000883BA /* files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = files;
+			sourceTree = "<group>";
+		};
 		11AD323829B17E92009C976D = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +157,7 @@
 		11AD324329B17E92009C976D /* SoftraceMetal */ = {
 			isa = PBXGroup;
 			children = (
+				11921EE229B94FE5000883BA /* files */,
 				11AD327629B3C7C9009C976D /* cpp */,
 				11AD324429B17E92009C976D /* AppDelegate.swift */,
 				11AD324629B17E92009C976D /* ContentView.swift */,
