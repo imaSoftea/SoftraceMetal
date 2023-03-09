@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Shape.h"
+#include "initialize.h"
 #include <vector>
 
 /**
@@ -20,4 +21,4 @@ struct UserSceneData
 };
 
 // Render Loop
-void renderScene(std::vector <Shape*> shapeList, UserSceneData details);
+void renderScene(Scene scene, UserSceneData details);

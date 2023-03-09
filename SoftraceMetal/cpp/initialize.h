@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Shape.h"
+#include "Light.h"
 #include <vector>
 
 /**
@@ -10,5 +11,11 @@
 * Helper method file to return a vector of shapes
 */
 
-std::vector<Shape*> buildScene();
-void destroyScene(std::vector<Shape*> list);
+struct Scene
+{
+    std::vector<Shape*> shapes;
+    std::vector<Light*> lights;
+};
+
+Scene buildScene();
+void destroyScene(Scene);

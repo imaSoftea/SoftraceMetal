@@ -11,7 +11,6 @@
 */
 class Light
 {
-    
 public:
     float strength;
     glm::vec3 color;

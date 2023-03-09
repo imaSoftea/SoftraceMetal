@@ -25,10 +25,11 @@ void renderMain()
     UserSceneData temp = { 800, 600 };
 
     // Initialize Program
-    std::vector<Shape*> sceneShapes = buildScene();
+    Scene scene = buildScene();
     
     // Render Scene
-    renderScene(sceneShapes, temp);
+    renderScene(scene, temp);
     
-    destroyScene(sceneShapes);
+    //Free Scene Variables
+    destroyScene(scene);
 }

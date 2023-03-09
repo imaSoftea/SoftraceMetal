@@ -1,5 +1,6 @@
 #include "initialize.h"
 #include "Box.h"
+#include "Light.h"
 
 /**
 * C++ Initialize Helper Source
@@ -8,23 +9,34 @@
 * Helper method file to return a vector of shapes
 */
 
-std::vector<Shape*> buildScene()
+Scene buildScene()
 {
+    Scene scene;
+    
 	std::vector<Shape*> list;
 
+    //Shapes go here
 	Shape* cube = new Box({-1.0f, -1.0f, 2.0f}, {1.0f, 1.0f, 3.0f});
 	list.push_back(cube);
     
     Shape* cube2 = new Box({-3.0f, -3.0f, 0.0f}, {3.0f, -2.8f, 5.0f});
     list.push_back(cube2);
     
-	return list;
+    //Lights go here
+    scene.shapes = list;
+    
+    return scene;
 }
 
-void destroyScene(std::vector<Shape*> list)
+void destroyScene(Scene s)
 {
-    for(Shape* l : list)
+    for(Shape* shape : s.shapes)
     {
-        free(l);
+        free(shape);
+    }
+    
+    for(Light* light : s.lights)
+    {
+        free(light);
     }
 }

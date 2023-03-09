@@ -1,8 +1,9 @@
 #include "render.h"
 #include "Print.h"
 #include "Camera.h"
+#include "initialize.h"
 
-void renderScene(std::vector <Shape*> shapeList, UserSceneData details)
+void renderScene(Scene scene, UserSceneData details)
 {
 	std::ofstream singlefile("test.ppm");
 	
@@ -17,7 +18,7 @@ void renderScene(std::vector <Shape*> shapeList, UserSceneData details)
 		{
             bool temp = false;
             
-			for (Shape* s : shapeList)
+			for (Shape* s : scene.shapes)
 			{
                 if(s->boundingBox(cam.shootRay(x,y)))
                 {
