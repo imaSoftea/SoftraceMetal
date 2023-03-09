@@ -11,6 +11,9 @@ private:
     float metallic;
     float roughness;
     
+public:
+
+    //Constructors
     Material()
     {
         color = {1.0f, 1.0f, 1.0f};
@@ -18,8 +21,14 @@ private:
         roughness = 1.0f;
     }
     
-public:
+    Material(glm::vec3 c, float m, float r)
+    {
+        color = c;
+        metallic = m;
+        roughness = r;
+    }
     
+    //Functions
     Ray GenerateRayDir();
     
 };

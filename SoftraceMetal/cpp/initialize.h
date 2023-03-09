@@ -11,3 +11,4 @@
 */
 
 std::vector<Shape*> buildScene();
+void destroyScene(std::vector<Shape*> list);

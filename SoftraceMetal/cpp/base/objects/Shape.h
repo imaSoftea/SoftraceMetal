@@ -19,15 +19,16 @@ protected:
 	//The name of the shape
 	std::string name;
 	glm::vec3 boundCorners[2];
-    
+    Material mat;
 
 public:
 
-	Shape(std::string n, glm::vec3 b1, glm::vec3 b2)
+	Shape(std::string n, glm::vec3 b1, glm::vec3 b2, Material m)
 	{
 		boundCorners[0] = b1;
 		boundCorners[1] = b2;
-
+        
+        mat = m;
 		name = n;
 	}
 
@@ -35,6 +36,42 @@ public:
 	virtual Ray collisionCheck(Ray r) = 0;
 
 	// Checks if Ray r is in bounding box
-	virtual bool boundingBox(Ray r) = 0;
+	bool boundingBox(Ray r)
+    {
+        glm::vec3 invdir = 1.0f / r.dir;
+
+        float tx0 = 0;
+        float tx1 = 0;
+
+        if (invdir.x >= 0)
+        {
+            tx0 = (boundCorners[0].x - r.origin[0]) * invdir.x;
+            tx1 = (boundCorners[1].x - r.origin[0]) * invdir.x;
+        }
+        else
+        {
+            tx0 = (boundCorners[1].x - r.origin[0]) * invdir.x;
+            tx1 = (boundCorners[0].x - r.origin[0]) * invdir.x;
+        }
+
+        float ty0 = (boundCorners[0].y - r.origin[1]) * invdir.y;
+        float ty1 = (boundCorners[1].y - r.origin[1]) * invdir.y;
+
+        if (ty0 > ty1) std::swap(ty0, ty1);
+
+        if (tx0 > ty1 || ty0 > tx1) return false;
+
+        float tmin = (tx0 > ty0) ? tx0 : ty0;
+        float tmax = (tx1 < ty1) ? tx1 : ty1;
+
+        float tz0 = (boundCorners[0].z - r.origin[2]) * invdir.z;
+        float tz1 = (boundCorners[1].z - r.origin[2]) * invdir.z;
+
+        if (tz0 > tz1) std::swap(tz0 , tz1);
+        
+        if (tmin > tz1 || tz0 > tmax) return false;
+
+        return true;
+    }
 
 };

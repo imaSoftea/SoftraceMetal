@@ -29,4 +29,6 @@ void renderMain()
     
     // Render Scene
     renderScene(sceneShapes, temp);
+    
+    destroyScene(sceneShapes);
 }
