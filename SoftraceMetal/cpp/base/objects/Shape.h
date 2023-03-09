@@ -73,5 +73,30 @@ public:
 
         return true;
     }
+    
+    //Random float from -1 to 1
+    float randomFloat()
+    {
+        return ((float)rand())/RAND_MAX * 2.0 - 1.0;
+    }
+    
+    Ray generateBounce(Ray income, Ray norm)
+    {
+        //Reflect Current Ray on Normal
+        Ray bounce;
+        bounce.origin = norm.origin;
+        bounce.dir = glm::reflect(income.dir, norm.dir);
+        
+        //Get Random Facing Outside
+        glm::vec3 rand = {randomFloat(), randomFloat(), randomFloat()};
+        glm::faceforward(rand, -1.0f * income.dir, norm.dir);
+        
+        //Combines random and relflected based on roughness
+        bounce.dir =
+            (mat.getRoughness() * glm::normalize(rand))
+            + ((1 - mat.getRoughness()) * glm::normalize(bounce.dir));
+        
+        return bounce;
+    }
 
 };

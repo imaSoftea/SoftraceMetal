@@ -29,7 +29,8 @@ public:
     }
     
     //Functions
-    Ray GenerateRayDir();
+    float getRoughness() {return roughness;}
+    float getMetallic() {return metallic;}
     
 };
 
