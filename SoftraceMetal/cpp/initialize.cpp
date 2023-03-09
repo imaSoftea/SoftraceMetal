@@ -1,5 +1,5 @@
 #include "initialize.h"
-#include "base/objects/types/Box.h"
+#include "Box.h"
 
 /**
 * C++ Initialize Helper Source

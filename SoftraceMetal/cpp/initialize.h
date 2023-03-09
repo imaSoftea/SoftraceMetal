@@ -1,6 +1,6 @@
 #pragma once
 
-#include "base/objects/Shape.h"
+#include "Shape.h"
 #include <vector>
 
 /**

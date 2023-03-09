@@ -20,4 +20,10 @@ class Ray
 		origin = o;
 		dir = d;
 	}
+    
+    Ray()
+    {
+        origin = {0.0f, 0.0f, 0.0f};
+        dir = {0.0f, 0.0f, 0.0f};
+    }
 };

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Shape.h"
+#include "Shape.h"
 
 // CLASS USES BOUNDING BOX AS SHAPE (really only meant for testing)
 class Box : public Shape
@@ -9,10 +9,10 @@ public:
 
 	Box(glm::vec3 b1, glm::vec3 b2) : Shape{ "BOX", b1, b2 } {}
 
-	Collision collisionCheck(Ray r) override
+	Ray collisionCheck(Ray r) override
 	{
-		Collision TEMPORARY_TEST_DELETE_LATER;
-		return TEMPORARY_TEST_DELETE_LATER;
+        Ray TEMPORARY_TEST_DELETE_LATER;
+        return TEMPORARY_TEST_DELETE_LATER;
 	}
 
 	bool boundingBox(Ray r) override

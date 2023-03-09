@@ -8,8 +8,8 @@
 */
 
 #include <iostream>
-#include "Collision.h"
 #include "Ray.h"
+#include "Material.h"
 
 class Shape
 {
@@ -19,6 +19,7 @@ protected:
 	//The name of the shape
 	std::string name;
 	glm::vec3 boundCorners[2];
+    
 
 public:
 
@@ -31,7 +32,7 @@ public:
 	}
 
 	// Checks for collision with Ray r
-	virtual Collision collisionCheck(Ray r) = 0;
+	virtual Ray collisionCheck(Ray r) = 0;
 
 	// Checks if Ray r is in bounding box
 	virtual bool boundingBox(Ray r) = 0;

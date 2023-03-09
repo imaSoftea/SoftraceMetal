@@ -78,7 +78,6 @@
 		11AD32C429B50AD8009C976D /* Integrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Integrator.h; sourceTree = "<group>"; };
 		11AD32C629B50AD8009C976D /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		11AD32C929B50AD8009C976D /* Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box.h; sourceTree = "<group>"; };
-		11AD32CA29B50AD8009C976D /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
 		11AD32CB29B50AD8009C976D /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
 		11AD32CC29B50AD8009C976D /* Ray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ray.h; sourceTree = "<group>"; };
 		11AD32CE29B50AD8009C976D /* Print.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Print.h; sourceTree = "<group>"; };
@@ -262,7 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				11AD32C829B50AD8009C976D /* types */,
-				11AD32CA29B50AD8009C976D /* Collision.h */,
 				11AD32CB29B50AD8009C976D /* Shape.h */,
 				11AD32CC29B50AD8009C976D /* Ray.h */,
 			);

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../objects/Ray.h"
+#include "Ray.h"
 
 /**
 * C++ Camera Class

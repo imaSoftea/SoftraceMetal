@@ -1,6 +1,6 @@
 #include "render.h"
-#include "base/print/Print.h"
-#include "base/camera/Camera.h"
+#include "Print.h"
+#include "Camera.h"
 
 void renderScene(std::vector <Shape*> shapeList, UserSceneData details)
 {
