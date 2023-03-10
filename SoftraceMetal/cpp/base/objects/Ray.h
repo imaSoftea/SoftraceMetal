@@ -12,6 +12,7 @@
 class Ray
 {
 	public:
+    
 		glm::vec3 origin;
 		glm::vec3 dir;
 
@@ -26,4 +27,11 @@ class Ray
         origin = {0.0f, 0.0f, 0.0f};
         dir = {0.0f, 0.0f, 0.0f};
     }
+    
+    //Random float from -1 to 1
+    static float rFV()
+    {
+        return ((float)rand())/RAND_MAX * 2.0 - 1.0;
+    }
+    
 };

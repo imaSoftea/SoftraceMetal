@@ -33,7 +33,10 @@ public:
 	}
 
 	// Checks for collision with Ray r
-	virtual Ray collisionCheck(Ray r) = 0;
+	virtual bool collisionCheck(Ray r) = 0;
+    
+    //Gets Normal
+    virtual glm::vec3 getNormal(Ray r) = 0;
 
 	// Checks if Ray r is in bounding box
 	bool boundingBox(Ray r)
@@ -74,12 +77,6 @@ public:
         return true;
     }
     
-    //Random float from -1 to 1
-    float randomFloat()
-    {
-        return ((float)rand())/RAND_MAX * 2.0 - 1.0;
-    }
-    
     Ray generateBounce(Ray income, Ray norm)
     {
         //Reflect Current Ray on Normal
@@ -87,8 +84,13 @@ public:
         bounce.origin = norm.origin;
         bounce.dir = glm::reflect(income.dir, norm.dir);
         
+        
+        float x = Ray::rFV();
+        float y = Ray::rFV();
+        float z = Ray::rFV();
+        
         //Get Random Facing Outside
-        glm::vec3 rand = {randomFloat(), randomFloat(), randomFloat()};
+        glm::vec3 rand = {x,y,z};
         glm::faceforward(rand, -1.0f * income.dir, norm.dir);
         
         //Combines random and relflected based on roughness

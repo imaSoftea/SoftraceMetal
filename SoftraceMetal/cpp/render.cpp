@@ -5,7 +5,7 @@
 
 void renderScene(Scene scene, UserSceneData details)
 {
-	std::ofstream singlefile("test.ppm");
+    std::ofstream singlefile("test.ppm");
 	
 	printHeader(singlefile, details.rWidth, details.rHeight);
 	Camera cam({0.0f, 0.0f, 0.0f}, { 0.0f, 0.0f, 1.0f }, 1.0f, details.rWidth, details.rHeight);
@@ -18,22 +18,38 @@ void renderScene(Scene scene, UserSceneData details)
 		{
             bool temp = false;
             
-			for (Shape* s : scene.shapes)
-			{
-                if(s->boundingBox(cam.shootRay(x,y)))
-                {
-                    temp = true;
-                }
-			}
+            glm::vec3 color = {0.0f, 0.0f, 0.0f};
+            int sampleSize = 10;
             
-            if (temp == true)
+            // Sample Size
+            for(int sx = 0; sx < sampleSize; sx++)
             {
-                printColor(singlefile, { 0.0f, 0.0f, 255.0f });
+                for(int sy = 0; sy < sampleSize; sy++)
+                {
+                    for (Shape* s : scene.shapes)
+                    {
+                        if(s->boundingBox(cam.shootRay((float) x + (float) sx / (float)(sampleSize * sampleSize),
+                                                       (float) y + (float) sy / (float)(sampleSize * sampleSize))))
+                        {
+                            temp = true;
+                        }
+                    }
+                    
+                    if (temp == true)
+                    {
+                        glm::vec3 temp = {0.0f,0.0f,255.0f};
+                        color = color + temp;
+                    }
+                    else
+                    {
+                        glm::vec3 temp = {90.0f,255.0f,255.0f};
+                        color = color + temp;
+                    }
+                }
             }
-            else
-            {
-                printColor(singlefile, { 65.0f, 255.0f, 255.0f });
-            }
+            
+            color = color / ((float) sampleSize * sampleSize);
+            printColor(singlefile, color);
 		}
 	}
 }

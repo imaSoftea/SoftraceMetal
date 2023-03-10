@@ -30,7 +30,7 @@ public:
 		height = h;
 	}
 
-	Ray shootRay(int currentWidth, int currentHeight)
+	Ray shootRay(float currentWidth, float currentHeight)
 	{
 		Ray ray = { origin, dir * fov};
 
