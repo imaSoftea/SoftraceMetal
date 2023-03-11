@@ -16,8 +16,6 @@ void renderScene(Scene scene, UserSceneData details)
 		//Horizontal Loop
 		for (int x = 0; x < details.rWidth; x++)
 		{
-            bool temp = false;
-            
             glm::vec3 color = {0.0f, 0.0f, 0.0f};
             int sampleSize = 10;
             
@@ -26,10 +24,13 @@ void renderScene(Scene scene, UserSceneData details)
             {
                 for(int sy = 0; sy < sampleSize; sy++)
                 {
+                    bool temp = false;
                     for (Shape* s : scene.shapes)
                     {
-                        if(s->boundingBox(cam.shootRay((float) x + (float) sx / (float)(sampleSize * sampleSize),
-                                                       (float) y + (float) sy / (float)(sampleSize * sampleSize))))
+                        float rayX = (float) x + ((float) sx / (float)(sampleSize)) - 0.5f;
+                        float rayY = (float) y + ((float) sy / (float)(sampleSize)) - 0.5f;
+                        
+                        if(s->boundingBox(cam.shootRay(rayX, rayY)))
                         {
                             temp = true;
                         }
@@ -42,13 +43,13 @@ void renderScene(Scene scene, UserSceneData details)
                     }
                     else
                     {
-                        glm::vec3 temp = {90.0f,255.0f,255.0f};
+                        glm::vec3 temp = {200.0f,200.0f,90.0f};
                         color = color + temp;
                     }
                 }
             }
             
-            color = color / ((float) sampleSize * sampleSize);
+            color = color / (float)(sampleSize * sampleSize);
             printColor(singlefile, color);
 		}
 	}
