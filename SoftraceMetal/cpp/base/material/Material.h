@@ -31,6 +31,7 @@ public:
     //Functions
     float getRoughness() {return roughness;}
     float getMetallic() {return metallic;}
-    
+    glm::vec3 getColor() {return color;}
+    void setColor(glm::vec3 c) {color = c;}
 };
 

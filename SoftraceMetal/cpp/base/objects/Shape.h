@@ -19,10 +19,12 @@ protected:
 	//The name of the shape
 	std::string name;
 	glm::vec3 boundCorners[2];
-    Material mat;
 
 public:
 
+    //Public Variables
+    Material mat;
+    
 	Shape(std::string n, glm::vec3 b1, glm::vec3 b2, Material m)
 	{
 		boundCorners[0] = b1;
@@ -37,6 +39,11 @@ public:
     
     //Gets Normal
     virtual glm::vec3 getNormal(Ray r) = 0;
+    
+    //Get Color Value from Point (Recursive)
+    virtual glm::vec3 getColor(Ray r) = 0;
+    
+    virtual float getTime(Ray r) = 0;
 
 	// Checks if Ray r is in bounding box
 	bool boundingBox(Ray r)

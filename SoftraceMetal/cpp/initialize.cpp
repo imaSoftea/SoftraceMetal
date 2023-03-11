@@ -16,7 +16,8 @@ Scene buildScene()
 	std::vector<Shape*> list;
 
     //Shapes go here
-	Shape* cube = new Box({-1.0f, -1.0f, 2.0f}, {1.0f, 1.0f, 3.0f});
+	Shape* cube = new Box({-1.0f, -2.0f, 2.0f}, {1.0f, 0.0f, 3.0f});
+    cube->mat.setColor({90.0f, 90.0f , 255.0f});
 	list.push_back(cube);
     
     Shape* cube2 = new Box({-3.0f, -3.0f, 0.0f}, {3.0f, -2.8f, 5.0f});

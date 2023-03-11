@@ -17,34 +17,43 @@ void renderScene(Scene scene, UserSceneData details)
 		for (int x = 0; x < details.rWidth; x++)
 		{
             glm::vec3 color = {0.0f, 0.0f, 0.0f};
-            int sampleSize = 10;
+            int sampleSize = 5;
             
             // Sample Size
             for(int sx = 0; sx < sampleSize; sx++)
             {
                 for(int sy = 0; sy < sampleSize; sy++)
                 {
-                    bool temp = false;
+                    float minTime = -1;
+                    Shape* closestShape = nullptr;
+                    
+                    float rayX = (float) x + ((float) sx / (float)(sampleSize)) - 0.5f;
+                    float rayY = (float) y + ((float) sy / (float)(sampleSize)) - 0.5f;
+                    
+                    Ray shot = cam.shootRay(rayX, rayY);
+                    
                     for (Shape* s : scene.shapes)
                     {
-                        float rayX = (float) x + ((float) sx / (float)(sampleSize)) - 0.5f;
-                        float rayY = (float) y + ((float) sy / (float)(sampleSize)) - 0.5f;
-                        
-                        if(s->boundingBox(cam.shootRay(rayX, rayY)))
+                        //Checks for if an object is in the bounding box;
+                        if(s->boundingBox(shot))
                         {
-                            temp = true;
+                            float time = s->getTime(shot);
+                            if((minTime > time && time > 0) || minTime == -1)
+                            {
+                                closestShape = s;
+                                minTime = time;
+                            }
                         }
                     }
                     
-                    if (temp == true)
+                    if (minTime > 0)
                     {
-                        glm::vec3 temp = {0.0f,0.0f,255.0f};
-                        color = color + temp;
+                        color += closestShape->getColor(shot);
                     }
                     else
                     {
-                        glm::vec3 temp = {200.0f,200.0f,90.0f};
-                        color = color + temp;
+                        glm::vec3 bg = {60.0f, 20.0f, 20.0f};
+                        color += bg;
                     }
                 }
             }
